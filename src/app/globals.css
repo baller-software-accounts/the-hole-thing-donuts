@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fredoka), ui-rounded, "Arial Rounded MT Bold", sans-serif;
+
+  --color-pink-50: #fff0fc;
+  --color-pink-100: #ffe0f8;
+  --color-pink-200: #ffc2f1;
+  --color-pink-300: #ff8fe5;
+  --color-pink-400: #ff4fdc;
+  --color-pink-500: #fa12d6; /* logo pink */
+  --color-pink-600: #d600b3;
+  --color-pink-700: #a8008c; /* AA text on cream/white */
+  --color-pink-800: #7c0068;
+
+  --color-cocoa-50: #faf5f0;
+  --color-cocoa-100: #f1e6da;
+  --color-cocoa-200: #e2ccb4;
+  --color-cocoa-300: #c9a47f;
+  --color-cocoa-500: #8a5a35;
+  --color-cocoa-700: #55341d;
+  --color-cocoa-800: #3d2414;
+  --color-cocoa-900: #2a180c;
+  --color-cocoa-950: #1b0f07;
+
+  --color-glaze: #fff8ee;
+  --color-butter: #ffd66b;
+  --color-mint: #7fdcc4;
+  --color-sky: #8fd3ff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+    background: var(--color-glaze);
+    color: var(--color-cocoa-900);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-pink-500);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+  ::selection { background: var(--color-pink-200); }
+}
+
+@utility container-site { @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8; }
+@utility btn { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 font-display text-lg font-semibold transition active:scale-[0.98]; }
+@utility btn-primary { @apply btn bg-pink-600 text-white shadow-[0_6px_0_0_var(--color-pink-800)] hover:bg-pink-700 hover:shadow-[0_4px_0_0_var(--color-pink-800)] hover:translate-y-0.5; }
+@utility btn-dark { @apply btn bg-cocoa-900 text-glaze shadow-[0_6px_0_0_var(--color-cocoa-950)] hover:bg-cocoa-800 hover:translate-y-0.5 hover:shadow-[0_4px_0_0_var(--color-cocoa-950)]; }
+@utility btn-outline { @apply btn border-2 border-cocoa-900 bg-white text-cocoa-900 hover:bg-cocoa-50; }
+@utility eyebrow { @apply font-display text-sm font-semibold tracking-[0.18em] text-pink-700 uppercase; }
+@utility h-display { @apply font-display font-bold tracking-tight text-cocoa-950; }
+@utility card { @apply rounded-3xl border-2 border-cocoa-100 bg-white p-6 shadow-[0_8px_0_0_var(--color-cocoa-100)]; }
+@utility sprinkles {
+    background-image:
+      radial-gradient(circle at 10% 20%, var(--color-pink-400) 0 3px, transparent 4px),
+      radial-gradient(circle at 80% 30%, var(--color-butter) 0 3px, transparent 4px),
+      radial-gradient(circle at 40% 70%, var(--color-mint) 0 3px, transparent 4px),
+      radial-gradient(circle at 70% 85%, var(--color-sky) 0 3px, transparent 4px),
+      radial-gradient(circle at 25% 90%, var(--color-butter) 0 3px, transparent 4px),
+      radial-gradient(circle at 90% 65%, var(--color-pink-300) 0 3px, transparent 4px);
+    background-size: 140px 140px;
+  }
